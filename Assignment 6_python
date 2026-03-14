@@ -1,0 +1,71 @@
+#1 Write a program that asks the user to enter numbers until they input an empty string to quit. At the end, the program prints out the five greatest numbers sorted in descending order. Hint: You can reverse the order of sorted list items by using the sort method with the reverse=True argument.
+numbers = []
+
+while True:
+    user_input = input("Enter a number (press Enter to quit): ")
+    
+    if user_input == "":
+        break
+    
+    numbers.append(int(user_input))
+
+numbers.sort(reverse=True)
+
+print("The five greatest numbers are:")
+print(numbers[:5])
+#2 Write a program that asks the user for a number of a month and then prints out the corresponding season (spring, summer, autumn, winter). Save the seasons as strings into a tuple in your program. We can define each season to last three months, December being the first month of winter.
+seasons = ("winter","spring","summer","autumn")
+
+month = int(input("enter month number: "))
+
+if month == 12 or month == 1 or month == 2:
+    print("season is", seasons[0])
+
+elif month >= 3 and month <= 5:
+    print("season is", seasons[1])
+
+elif month >= 6 and month <= 8:
+    print("season is", seasons[2])
+
+elif month >= 9 and month <= 11:
+    print("season is", seasons[3])
+#3 Write a program that asks the user to enter names until they enter an empty string. After each name is read, the program either prints out New name or Existing name depending on whether the name was entered for the first time. Finally, the program lists out the input names one by one, one below another in any order. Use the set data structure to store the names.
+names = set()
+
+while True:
+    name = input("Enter name: ")
+
+    if name == "":
+        break
+
+    if name in names:
+        print("Existing name")
+    else:
+        print("New name")
+
+    names.add(name)
+
+print("Names:")
+
+for name in names:
+    print(name)
+#5 Write a function that gets a list of integers as a parameter. The function returns a second list that is otherwise the same as the original list except that all odd numbers have been removed. For testing, write a main program where you create a list, call the function, and then print out both the original as well as the cut-down list.
+def remove_odd(numbers):
+    new_list = []
+
+    for n in numbers:
+        if n % 2 == 0:
+            new_list.append(n)
+
+    return new_list
+
+
+# main program
+nums = [1, 2, 3, 4, 5, 6, 7, 8]
+
+result = remove_odd(nums)
+
+print("Original list:", nums)
+print("List without odd numbers:", result)
+#4 Write a function that will determine the frequency of a word (i.e. how many times does a word appears) in a given piece of text, then calculate the proportion of the 5 most common words relative to the piece of text.
+
